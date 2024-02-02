@@ -52,6 +52,12 @@ components:
       image: quay.io/ramoreir/azure-cli@sha256:3cdc9b8c2e3f16e518c03d264e6cb757baee289f479832b47ed6b26cff273d0e
       memoryLimit: 512Mi
       mountSources: true
+      volumeMounts:
+        - name: azure-cli-vol
+          path: /azure-cli
+  - name: azure-cli-vol
+    volume:
+      size: 1G
 commands:
   - exec:
       commandLine: './mvnw clean package -DskipTests -Dquarkus.container-image.build=false -Dquarkus.container-image.builder=openshift'
