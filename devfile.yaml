@@ -1,13 +1,6 @@
 schemaVersion: 2.2.0
 metadata:
   name: devspaces-quarkus-crud-demo
-# projects:
-#   - name: devspaces-quarkus-crud-demo
-#     git:
-#       remotes:
-#         origin: "https://github.com/raphaelmorsch/devspaces-quarkus-crud-demo"
-#       checkoutFrom:
-#         revision: main
 components:
   - name: tools
     container:
@@ -53,15 +46,6 @@ components:
       memoryLimit: 512Mi
       mountSources: true
 commands:
-  - exec:
-      commandLine: 'az login'
-      component: azure-cli
-      group:
-        isDefault: true
-        kind: run
-      workingDir: '${PROJECT_SOURCE}'
-      label: Login Azure
-    id: azure-login
   - exec:
       commandLine: './mvnw clean package -DskipTests -Dquarkus.container-image.build=false -Dquarkus.container-image.builder=openshift'
       component: tools
