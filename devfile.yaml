@@ -54,6 +54,15 @@ components:
       mountSources: true
 commands:
   - exec:
+      commandLine: 'az login'
+      component: azure-cli
+      group:
+        isDefault: true
+        kind: run
+      workingDir: '${PROJECT_SOURCE}'
+      label: Login Azure
+    id: azure-login
+  - exec:
       commandLine: './mvnw clean package -DskipTests -Dquarkus.container-image.build=false -Dquarkus.container-image.builder=openshift'
       component: tools
       group:
