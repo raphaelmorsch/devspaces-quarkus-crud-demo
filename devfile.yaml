@@ -1,6 +1,13 @@
 schemaVersion: 2.2.0
 metadata:
   name: devspaces-quarkus-crud-demo
+# projects:
+#   - name: devspaces-quarkus-crud-demo
+#     git:
+#       remotes:
+#         origin: "https://github.com/raphaelmorsch/devspaces-quarkus-crud-demo"
+#       checkoutFrom:
+#         revision: main
 components:
   - name: tools
     container:
@@ -40,6 +47,11 @@ components:
       memoryLimit: 64M
       mountSources: true
       sourceMapping: /projects
+  - name: azure-cli
+    container:
+      image: quay.io/ramoreir/azure-cli@sha256:3cdc9b8c2e3f16e518c03d264e6cb757baee289f479832b47ed6b26cff273d0e
+      memoryLimit: 512Mi
+      mountSources: true
 commands:
   - exec:
       commandLine: './mvnw clean package -DskipTests -Dquarkus.container-image.build=false -Dquarkus.container-image.builder=openshift'
