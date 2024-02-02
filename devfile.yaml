@@ -50,10 +50,10 @@ components:
   - name: azure-cli
     container:
       image: quay.io/ramoreir/azure-cli@sha256:3cdc9b8c2e3f16e518c03d264e6cb757baee289f479832b47ed6b26cff273d0e
-      memoryLimit: 4Gi
-      memoryRequest: 2Gi
-      cpuRequest: 1000m
-      cpuLimit: 3000m
+      memoryLimit: 2Gi
+      memoryRequest: 1Gi
+      cpuRequest: 500m
+      cpuLimit: 1000m
       mountSources: true
       volumeMounts:
         - name: azure-cli-vol
