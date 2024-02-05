@@ -50,6 +50,11 @@ components:
   - name: azure-cli
     container:
       image: podman pull quay.io/ramoreir/bastion/azure-cli-0.1:latest
+      args:
+        - '-f'
+        - /dev/null
+      command:
+        - tail      
       memoryLimit: 2Gi
       memoryRequest: 1Gi
       cpuRequest: 200m
@@ -57,7 +62,7 @@ components:
       mountSources: true
       volumeMounts:
         - name: azure-cli-vol
-          path: /azure-cli
+          path: /usr/bin
   - name: azure-cli-vol
     volume:
       size: 1G
