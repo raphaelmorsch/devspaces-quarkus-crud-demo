@@ -49,8 +49,11 @@ components:
       sourceMapping: /projects
   - name: azure-cli
     container:
-      image: quay.io/ramoreir/bastion/azure-cli-0.1:latest
-      command: ['sleep', 'infinity']     
+      image: quay.io/fcalomen/bastion:azure-cli-0.1
+      command: ['tail']
+      args:
+        - '-f'
+        - /dev/null     
       memoryLimit: 2Gi
       memoryRequest: 1Gi
       cpuRequest: 200m
