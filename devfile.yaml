@@ -49,7 +49,7 @@ components:
       sourceMapping: /projects
   - name: azure-cli
     container:
-      image: podman pull quay.io/ramoreir/bastion/azure-cli-0.1:latest
+      image: quay.io/ramoreir/bastion/azure-cli-0.1:latest
       args:
         - '-f'
         - /dev/null
