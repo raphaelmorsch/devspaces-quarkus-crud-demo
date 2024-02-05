@@ -56,9 +56,6 @@ components:
       cpuRequest: 200m
       cpuLimit: 1000m
       mountSources: true
-      volumeMounts:
-        - name: azure-cli-vol
-          path: /usr/bin
   - name: azure-cli-vol
     volume:
       size: 1G
